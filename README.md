@@ -57,3 +57,29 @@ based on their closest approach to Earth, lookup specific asteroids by their NAS
 - **Edge Case Tests (tests/test_edge_cases/test_edge_cases.py)**: Tests how the application handles unexpected API responses, such as unexpected keys in the response or rate-limiting errors.
 - **Error Handling Tests (tests/test_error_handling/test_error_handling.py)**: Simulates network failures, API timeouts, and missing API keys to ensure robust error handling.
 - **Performance Tests (tests/test_performance/test_performance.py)**: Measures the performance of API interactions by recording response times and validating that they meet acceptable thresholds.
+
+### NASA APIs Used
+
+#### Astronomy Picture of the Day (APOD)
+
+The APOD API allows you to retrieve NASA's Astronomoy Picture of the Day and its associated metadata.
+
+- **Endpoint**: https://api.nasa.gov/planetary/apod
+- **Example Query**:
+```bash
+   https://api.nasa.gov/planetary/apod?date=2023-07-22&api_key=DEMO_KEY
+```
+
+#### NeoWS (Near Earth Object Web Service)
+
+NeoWs is used for retrieving information on near-Earth objects.
+
+- **Feed Endpoint**: Retrieves a list of asteroids based on their closest approach date to Earth.
+```bash
+   https://api.nasa.gov/neo/rest/v1/feed?start_date=2023-07-01&end_date=2023-07-07&api_key=DEMO_KEY
+```
+
+- **Lookup Endpoint**: Looks up a specific asteroid using its NASA JPL small body ID.
+```bash
+https://api.nasa.gov/neo/rest/v1/neo/3542519?api_key=DEMO_KEY
+```
