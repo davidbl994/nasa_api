@@ -25,3 +25,15 @@ class TestErrorHandling:
             assert False, "Expected Timeout"
         except requests.exceptions.Timeout:
             pass
+
+    @mock.patch('utils.helper.requests.get')
+    def test_api_unavailable(self, mock_get):
+        # Simulate a 503 Service Unavailable response
+        mock_get.return_value.status_code = 503
+        mock_get.return_value.json.return_value = {"error": "Service Unavailable"}
+
+        response = get_apod(date="2023-07-22")
+        assert response.status_code == 503
+        data = response.json()
+        assert 'error' in data
+        assert data['error'] == "Service Unavailable"
