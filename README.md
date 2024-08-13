@@ -46,4 +46,14 @@ based on their closest approach to Earth, lookup specific asteroids by their NAS
    NASA_API_KEY=your_nasa_api_key
 ```
 
+### Running the tests
+```bash
+   pytest -vs /tests
+```
 
+### Test Categories
+- **APOD Tests (tests/test_apod/test_apod.py)**: Validates the correct retriveal of data from the APOD API.
+- **NeoWs Tests (tests/test_neo_ws)**: Tests for the NeoWs API, including feed retrieval and specific asteroid lookup.
+- **Edge Case Tests (tests/test_edge_cases/test_edge_cases.py)**: Tests how the application handles unexpected API responses, such as unexpected keys in the response or rate-limiting errors.
+- **Error Handling Tests (tests/test_error_handling/test_error_handling.py)**: Simulates network failures, API timeouts, and missing API keys to ensure robust error handling.
+- **Performance Tests (tests/test_performance/test_performance.py)**: Measures the performance of API interactions by recording response times and validating that they meet acceptable thresholds.
