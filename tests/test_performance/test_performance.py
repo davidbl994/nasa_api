@@ -20,3 +20,12 @@ class TestPerformance:
 
         assert response.status_code == 200
         assert duration < 1.05, f"API response took too long: {duration}"
+
+    def test_apod_response_time(self):
+        start_time = time.time()
+        response = get_apod(date="2023-07-22")
+        end_time = time.time()
+        duration = end_time - start_time
+
+        assert response.status_code == 200
+        assert duration < 1.55, f"API response took too long: {duration}"
