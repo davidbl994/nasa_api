@@ -10,3 +10,9 @@ This project leverages the following NASA APIs:
 - **Astronomy Picture of the Day (APOD)**: Retrieves imagery and associated data from NASA's APOD service.
 - **Near Earth Object Web Service (NeoWs)**: Provides information on near-Earth objects, allowing users to search for asteroids
 based on their closest approach to Earth, lookup specific asteroids by their NASA JPL small body ID, and browse the overall dataset.
+
+### Key files
+
+- **config/settings.py**: Manages configuration settings, including API keys and base URLs.
+- **utils/helper.py**: Contains utility functions to interact with the NASA APIs, such as `get_neo_feed`, `get_neo_lookup`, and `get_apod`.
+- **tests/**: Contains all test cases structured by category, including edge cases, error handling, performance, and specific API tests
