@@ -11,3 +11,12 @@ class TestPerformance:
 
         assert response.status_code == 200
         assert duration < 1.0, f"API response took too long: {duration}"
+
+    def test_neo_lookup_resonse_time(self):
+        start_time = time.time()
+        response = get_neo_lookup(3542519)
+        end_time = time.time()
+        duration = end_time - start_time
+
+        assert response.status_code == 200
+        assert duration < 1.0, f"API response took too long: {duration}"
