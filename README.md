@@ -51,6 +51,10 @@ based on their closest approach to Earth, lookup specific asteroids by their NAS
    pytest -vs /tests
 ```
 
+After the tests are executed, a HTML report will be generated in the results/ directory using the pytest-html library.
+
+![img.png](img.png)
+
 ### Test Categories
 - **APOD Tests (tests/test_apod/test_apod.py)**: Validates the correct retriveal of data from the APOD API.
 - **NeoWs Tests (tests/test_neo_ws)**: Tests for the NeoWs API, including feed retrieval and specific asteroid lookup.
