@@ -14,3 +14,14 @@ class TestErrorHandling:
             assert False, "Expected ConnectionError"
         except requests.exceptions.ConnectionError:
             pass
+
+    @mock.patch('utils.helper.requests.get')
+    def test_timeout(self, mock_get):
+        # Simulate a request timeout
+        mock_get.side_effect = requests.exceptions.Timeout
+
+        try:
+            response = get_neo_lookup(3542519)
+            assert False, "Expected Timeout"
+        except requests.exceptions.Timeout:
+            pass
